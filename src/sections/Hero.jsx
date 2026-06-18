@@ -1,97 +1,104 @@
-import { motion } from 'framer-motion';
-import { ArrowDown, Code, User, FileText } from 'lucide-react';
+import { motion as Motion, useReducedMotion } from 'framer-motion';
+import { ArrowDown, Mail, FileText } from 'lucide-react';
+import { GitHubIcon } from '../components/icons/SocialIcons';
+import ProfileCard from '../components/ProfileCard';
+import { ActionButton } from '../components/ui/Hud';
+import { GITHUB_URL, RESUME_URL, isLinkReady } from '../constants/links';
+import { heroContent, hudStats } from '../data/portfolioData';
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }
-    }
-  };
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center sm:items-start text-center sm:text-left"
-        >
-          <motion.div variants={itemVariants} className="mb-2">
-            <span className="text-sm md:text-md font-medium tracking-widest text-secondary uppercase">
-              Hello, I'm
-            </span>
-          </motion.div>
-          
-          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight mb-4">
-            Sanjana Gondariya
-          </motion.h1>
-          
-          <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl lg:text-4xl text-gray-400 font-semibold mb-6">
-            <span className="text-gradient">Full-Stack Developer</span> & CS Student
-          </motion.h2>
-          
-          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
-            Building interactive, user-focused web experiences with modern technologies. 
-            Passionate about scalable, clean, and dynamic applications.
-          </motion.p>
-          
-          <motion.div variants={itemVariants} className="flex flex-wrap flex-col sm:flex-row gap-4 items-center">
-            <a 
-              href="#projects" 
-              className="px-8 py-3 rounded-full bg-primary/90 hover:bg-primary text-white font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(126,34,206,0.6)]"
-            >
-              View Projects
-            </a>
-            <a 
-              href="#contact" 
-              className="px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white font-medium transition-all duration-300"
-            >
-              Contact Me
-            </a>
-            
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full glass hover:bg-white/10 transition-all duration-300 ml-0 sm:ml-4 group">
-              <FileText size={20} className="group-hover:text-secondary transition-colors" />
-              <span>Resume</span>
-            </a>
-            <div className="flex gap-4 ml-0 sm:ml-4">
-              <a href="#" className="p-3 rounded-full glass hover:bg-white/10 hover:text-white transition-all duration-300 group">
-                <Code size={24} className="text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a href="#" className="p-3 rounded-full glass hover:bg-white/10 hover:text-secondary transition-all duration-300 group">
-                <User size={24} className="text-gray-400 group-hover:text-secondary transition-colors" />
-              </a>
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 scroll-mt-16"
+    >
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-14 items-center">
+          <Motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <p className="hud-label text-lime mb-4">{heroContent.label}</p>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-balance">
+              Building polished interfaces with a{' '}
+              <span className="text-lime">{heroContent.headlineAccent}</span> mindset.
+            </h1>
+
+            <p className="mt-4 text-lg sm:text-xl text-secondary font-medium">
+              {heroContent.subheadline}
+            </p>
+
+            <p className="mt-6 text-base sm:text-lg text-secondary leading-relaxed max-w-xl">
+              {heroContent.paragraph}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ActionButton href="#projects" variant="primary">
+                View Projects
+              </ActionButton>
+              <ActionButton href={RESUME_URL} variant="secondary" external icon={FileText}>
+                Resume
+              </ActionButton>
+              <ActionButton
+                href={isLinkReady(GITHUB_URL) ? GITHUB_URL : undefined}
+                variant="secondary"
+                external
+                disabled={!isLinkReady(GITHUB_URL)}
+                icon={GitHubIcon}
+                aria-label="GitHub profile"
+              >
+                GitHub
+              </ActionButton>
+              <ActionButton href="#contact" variant="ghost" icon={Mail}>
+                Contact
+              </ActionButton>
             </div>
-          </motion.div>
-        </motion.div>
+
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {hudStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex items-center gap-3 bg-surface-1 border border-white/10 px-3 py-2.5"
+                >
+                  <span className="hud-label text-[9px] shrink-0">{stat.label}:</span>
+                  <span className="font-mono text-[10px] sm:text-xs text-foreground truncate">
+                    {stat.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Motion.div>
+
+          <Motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="w-full max-w-sm mx-auto lg:max-w-none lg:mx-0"
+          >
+            <ProfileCard />
+          </Motion.div>
+        </div>
       </div>
 
-      <motion.div 
+      <Motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 motion-reduce:hidden"
+        aria-hidden="true"
       >
-        <span className="text-xs tracking-widest text-gray-500 mb-2 uppercase">Scroll</span>
-        <motion.div
-           animate={{ y: [0, 10, 0] }}
-           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        <span className="hud-label">SCROLL</span>
+        <Motion.div
+          animate={prefersReducedMotion ? {} : { y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         >
-          <ArrowDown size={20} className="text-gray-500" />
-        </motion.div>
-      </motion.div>
+          <ArrowDown size={16} className="text-muted" />
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }
