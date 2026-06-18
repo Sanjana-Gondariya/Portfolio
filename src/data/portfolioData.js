@@ -25,11 +25,12 @@ export const personal = {
 };
 
 // TODO: Add profile photo at public/profile.jpg
+const base = import.meta.env.BASE_URL;
 export const assets = {
-  profileImage: '/profile.jpg',
+  profileImage: `${base}profile.jpg`,
   // TODO: Add Gesture Platform screenshot at public/projects/gesture-platform.png
-  gestureImage: '/projects/gesture-platform.png',
-  resumeUrl: RESUME_URL,
+  gestureImage: `${base}projects/gesture-platform.png`,
+  resumeUrl: `${base}resume.pdf`,
 };
 
 export const links = {
