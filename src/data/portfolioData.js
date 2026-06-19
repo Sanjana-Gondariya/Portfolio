@@ -8,6 +8,7 @@ import {
   GESTURE_DEMO_URL,
   MOODLE_GITHUB_URL,
 } from '../constants/links';
+import profileImage from '../assets/profile.jpg';
 
 export const personal = {
   name: 'Sanjana Gondariya',
@@ -24,10 +25,9 @@ export const personal = {
   currentBuild: 'Moodle platform',
 };
 
-// TODO: Add profile photo at public/profile.jpg
 const base = import.meta.env.BASE_URL;
 export const assets = {
-  profileImage: `${base}profile.jpg`,
+  profileImage,
   // TODO: Add Gesture Platform screenshot at public/projects/gesture-platform.png
   gestureImage: `${base}projects/gesture-platform.png`,
   resumeUrl: `${base}resume.pdf`,
