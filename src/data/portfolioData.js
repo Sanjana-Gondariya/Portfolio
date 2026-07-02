@@ -1,56 +1,31 @@
-import {
-  EMAIL,
-  PHONE,
-  RESUME_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-  GESTURE_SOURCE_URL,
-  GESTURE_DEMO_URL,
-  MOODLE_GITHUB_URL,
-} from '../constants/links';
+import { RESUME_URL } from '../constants/links';
+
+const base = import.meta.env.BASE_URL;
 
 export const personal = {
   name: 'Sanjana Gondariya',
-  email: EMAIL,
-  phone: PHONE,
   location: 'Fort Wayne, IN',
-  locationFull: 'Fort Wayne, United States',
-  school: 'Purdue University Fort Wayne',
   gpa: '3.61',
   graduation: 'May 2027',
   role: 'Front-End Developer',
-  growthLabel: 'Full-Stack Growth',
+  growthLabel: 'Full-Stack in Progress',
   focus: 'React UI',
-  currentBuild: 'Moodle platform',
+  currentBuild: 'Moodle Platform',
 };
 
 // TODO: Add profile photo at public/profile.jpg
-const base = import.meta.env.BASE_URL;
 export const assets = {
   profileImage: `${base}profile.jpg`,
   // TODO: Add Gesture Platform screenshot at public/projects/gesture-platform.png
   gestureImage: `${base}projects/gesture-platform.png`,
-  resumeUrl: `${base}resume.pdf`,
-};
-
-export const links = {
-  email: EMAIL,
-  phone: PHONE,
-  resume: RESUME_URL,
-  github: GITHUB_URL,
-  linkedin: LINKEDIN_URL,
-  gestureSource: GESTURE_SOURCE_URL,
-  gestureDemo: GESTURE_DEMO_URL,
-  moodleGithub: MOODLE_GITHUB_URL,
 };
 
 export const heroContent = {
   label: 'PLAYER_01 / SANJANA_GONDARIYA',
-  headline: 'Building polished interfaces with a frontend-first mindset.',
   headlineAccent: 'frontend-first',
   subheadline: 'CS student leveling up into full-stack development.',
   paragraph:
-    "I'm a front-end focused Computer Science student at Purdue University Fort Wayne. I build responsive, interactive web experiences with React, JavaScript, and Tailwind CSS, and I'm expanding into backend/database development through coursework and a Moodle-inspired project.",
+    "I build responsive, interactive web experiences with React, JavaScript, and Tailwind CSS. I'm currently expanding into backend and database development through coursework and a Moodle-inspired full-stack project.",
 };
 
 export const hudStats = [
@@ -128,11 +103,6 @@ export const skillCategories = [
       'Responsive Design',
     ],
   },
-  {
-    id: 'languages',
-    label: 'Languages',
-    items: ['English', 'French'],
-  },
 ];
 
 /** Ordered most recent → oldest */
@@ -140,53 +110,48 @@ export const experiences = [
   {
     role: 'International Orientation Leader',
     company: 'Purdue University Fort Wayne',
-    period: 'Aug 2025 — Aug 2025',
-    location: 'Fort Wayne, United States',
+    period: 'Aug 2025',
+    location: 'Fort Wayne, IN',
     bullets: [
-      'Managed participant lists and attendance records with high accuracy to enable timely follow-up and administrative reporting.',
-      'Created and maintained event workflows and volunteer checklists to streamline onboarding, training, and shift handoffs.',
+      'Managed participant lists and attendance records for international orientation.',
+      'Created and maintained event workflows and volunteer checklists.',
+      'Supported onboarding and shift handoffs for orientation activities.',
     ],
   },
   {
     role: 'ITS Inventory',
     company: 'Purdue University — Information Technology Services',
     period: 'Oct 2023 — Mar 2024',
-    location: 'Fort Wayne, United States',
+    location: 'Fort Wayne, IN',
     bullets: [
-      'Maintained structured Excel reports and operational logs to track equipment status across IT workflows, ensuring data accuracy for the support team.',
-      'Staged and configured equipment for user appointments and demos, coordinating smooth technical handoffs between staff and end users.',
-      'Documented step-by-step processes and built task checklists used to onboard new team members and lay groundwork for workflow automation.',
-      'Coordinated vendor handoffs and follow-up via professional email, escalating unresolved issues to maintain SLA compliance.',
+      'Maintained structured Excel reports and operational logs to track equipment status across IT workflows.',
+      'Staged and configured equipment for user appointments and demos.',
+      'Documented step-by-step processes and built task checklists for onboarding and workflow consistency.',
+      'Coordinated vendor handoffs and follow-up through professional email communication.',
     ],
   },
   {
     role: 'Office Assistant Intern',
     company: 'Shreeji Development Enterprise',
     period: 'Jan 2023 — Jul 2023',
-    location: 'Bakau, Gambia',
+    location: 'Bakau, The Gambia',
     bullets: [
-      'Maintained organized electronic and physical records to support client-facing workflows and enable quick document retrieval.',
-      'Processed purchasing and accounting documents with attention to accuracy; managed delivery logs and vendor returns.',
+      'Maintained organized electronic and physical records for client-facing workflows.',
+      'Processed purchasing and accounting documents with attention to accuracy.',
+      'Managed delivery logs and vendor returns.',
     ],
   },
 ];
 
 export const certifications = [
-  {
-    issuer: 'Anthropic',
-    title: 'AI Fluency: Framework & Foundations',
-  },
-  {
-    issuer: 'Anthropic',
-    title: 'Claude 101',
-  },
+  { issuer: 'Anthropic', title: 'AI Fluency: Framework & Foundations' },
+  { issuer: 'Anthropic', title: 'Claude 101' },
 ];
 
 export const gestureProject = {
   title: 'Gesture & Face-Controlled Game Platform',
   period: 'Aug–Dec 2025',
   context: 'Web App Development, Purdue Fort Wayne',
-  role: 'Frontend Lead',
   description:
     'Led front-end development for a browser-based gaming platform using React and Tailwind CSS, integrating real-time webcam input via MediaPipe for gesture and facial landmark tracking.',
   games: [
@@ -220,12 +185,12 @@ export const gestureProject = {
 
 export const moodleProject = {
   title: 'Moodle-Inspired Course Platform',
-  role: 'Backend/database growth project',
+  role: 'Full-Stack / Database Project',
   description:
-    'A Moodle-inspired course platform I am building to strengthen backend and database development skills after taking Database coursework.',
+    'A Moodle-inspired course management platform focused on backend logic, database structure, and dynamic user/course interactions. Built to strengthen full-stack development skills after database coursework.',
   features: [
     'Course/user management planned',
-    'Database-backed application structure in progress',
+    'Database-backed application structure',
     'Backend/database implementation in progress',
     'GitHub-based development workflow',
   ],
@@ -233,8 +198,7 @@ export const moodleProject = {
 };
 
 export const contactContent = {
-  subtitle:
-    "I'm open to internship opportunities, frontend roles, and collaborative projects that combine thoughtful UI with real technical problem-solving.",
+  subtitle: 'Open to internships, frontend roles, and collaborative full-stack projects.',
   formPlaceholders: {
     name: 'Your name',
     email: 'your.email@example.com',

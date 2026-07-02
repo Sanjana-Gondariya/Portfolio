@@ -1,11 +1,9 @@
-// TODO: Paste real GitHub profile URL below
-export const GITHUB_URL = 'https://github.com/Sanjana-Gondariya';
-
 // TODO: Paste real LinkedIn profile URL below
-export const LINKEDIN_URL = 'PASTE_REAL_LINKEDIN_URL_HERE';
+export const LINKEDIN_URL = 'www.linkedin.com/in/sanjana-gondariya-3589502a7';
 
+export const GITHUB_URL = 'https://github.com/Sanjana-Gondariya';
 export const EMAIL = 'sanjanaplayz@gmail.com';
-export const PHONE = '+12602106234';
+
 // TODO: Add resume PDF at public/resume.pdf
 export const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
 
