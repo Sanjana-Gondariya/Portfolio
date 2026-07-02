@@ -85,6 +85,10 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .input-hud {
+    @apply w-full bg-surface-2 border border-white/10 px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-lime/40 focus:ring-1 focus:ring-lime/20 transition-colors;
+  }
 }
 
 /* Custom scrollbar */
