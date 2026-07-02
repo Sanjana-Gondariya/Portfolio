@@ -113,7 +113,7 @@ export default function Contact() {
                       required
                       autoComplete="name"
                       placeholder={formPlaceholders.name}
-                      className="w-full bg-surface-2 border border-white/10 px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-lime/40 focus:ring-1 focus:ring-lime/20 transition-colors"
+                      className="input-hud"
                     />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function Contact() {
                       required
                       autoComplete="email"
                       placeholder={formPlaceholders.email}
-                      className="w-full bg-surface-2 border border-white/10 px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-lime/40 focus:ring-1 focus:ring-lime/20 transition-colors"
+                      className="input-hud"
                     />
                   </div>
                 </div>
@@ -142,7 +142,7 @@ export default function Contact() {
                     name="subject"
                     required
                     placeholder={formPlaceholders.subject}
-                    className="w-full bg-surface-2 border border-white/10 px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-lime/40 focus:ring-1 focus:ring-lime/20 transition-colors"
+                    className="input-hud"
                   />
                 </div>
 
@@ -156,7 +156,7 @@ export default function Contact() {
                     required
                     rows={5}
                     placeholder={formPlaceholders.message}
-                    className="w-full bg-surface-2 border border-white/10 px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-lime/40 focus:ring-1 focus:ring-lime/20 transition-colors resize-none"
+                    className="input-hud resize-none"
                   />
                 </div>
 
